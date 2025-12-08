@@ -1,7 +1,7 @@
 <!-- LAYOUT -->
 
 <script>
-	import favicon from '/favicon.svg';
+	import favicon from '$lib/assets/favicon.svg';
 	import './layout.css';
 	import { page } from '$app/state';
 	import { base } from '$app/paths';

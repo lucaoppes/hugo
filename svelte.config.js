@@ -16,7 +16,7 @@ const config = {
 			strict: true
 		}),
 		paths: {
-			base: process.argv.includes('dev') ? '' : '/lucaoppes.github.io'
+			base: process.argv.includes('dev') ? '' : '/lucaoppes.github.io/hugo'
 		}
 	}
 };
