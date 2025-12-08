@@ -3,6 +3,7 @@
 <script>
 	import { cart } from '$lib/sharedState.svelte';
 	import flow from '$lib/assets/flow.jpg';
+	import { base } from '$app/paths';
 
 	const artefacts = $state([
 		{ id: 1, name: 'Product 1', image: flow, price: 10 },
