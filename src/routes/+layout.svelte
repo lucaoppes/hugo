@@ -15,8 +15,8 @@
 
 <nav>
 	<a href="{base}/" aria-current={page.url.pathname === `${base}/`}>HOME</a>
-	<a href="{base}/artefacts" aria-current={page.url.pathname === `${base}/artefacts/`}>ARTEFACTS</a>
-	<a href="{base}/cart" aria-current={page.url.pathname === `${base}/cart/`}>CART</a>
+	<a href="{base}/artefacts" aria-current={page.url.pathname === `${base}/artefacts`}>ARTEFACTS</a>
+	<a href="{base}/cart" aria-current={page.url.pathname === `${base}/cart`}>CART</a>
 </nav>
 
 {@render children()}
