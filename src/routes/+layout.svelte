@@ -1,6 +1,7 @@
 <!-- LAYOUT -->
 
 <script>
+	import favicon from '/favicon.svg';
 	import './layout.css';
 	import { page } from '$app/state';
 	import { base } from '$app/paths';
@@ -9,7 +10,7 @@
 </script>
 
 <svelte:head>
-	<link rel="icon" href="../../static/favicon.svg" />
+	<link rel="icon" href={favicon} />
 </svelte:head>
 
 <nav>
