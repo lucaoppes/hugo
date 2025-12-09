@@ -11,16 +11,25 @@
 		<h1>Cart is Empty</h1>
 	{:else}
 		<h1>Cart:</h1>
-		{#each cart as artefact}
+		{#each cart as artefact, index}
 			<article>
 				<enhanced:img class="image" src={artefact.image} alt="" />
 				<div>
 					<h2>{artefact.name}</h2>
 					<p>${artefact.price}</p>
-					<p>x{artefact.quantity}</p>
+					<button
+						class="quantityAdjust"
+						onclick={() => (artefact.quantity == 1 ? null : artefact.quantity--)}>-</button
+					>
+
+					<p id="quantity">x{artefact.quantity}</p>
+					<button class="quantityAdjust" onclick={() => artefact.quantity++}>+</button>
+
+					<button id="remove" onclick={() => cart.splice(index, 1)}>Remove</button>
 				</div>
 			</article>
 		{/each}
+		<h1>Total is ${cart.reduce((accum, value) => accum + value.price * value.quantity, 0)}</h1>
 	{/if}
 </main>
 
@@ -38,7 +47,25 @@
 	}
 
 	.image {
-		width: 100px;
-		height: 100px;
+		width: 104px;
+		height: 104px;
+	}
+
+	.quantityAdjust {
+		font-size: 0.75rem;
+		padding: 0.25rem;
+		width: 1.5rem;
+		height: 1.5rem;
+	}
+
+	#quantity {
+		display: inline;
+		padding: 0.25rem;
+	}
+
+	#remove {
+		display: block;
+		font-size: 0.75rem;
+		margin-top: 0.25rem;
 	}
 </style>
