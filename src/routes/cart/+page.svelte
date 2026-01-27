@@ -49,6 +49,7 @@
 	.image {
 		width: 104px;
 		height: 104px;
+		border: 0.15rem solid #833097;
 	}
 
 	.quantityAdjust {
