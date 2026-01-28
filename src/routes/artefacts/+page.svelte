@@ -5,7 +5,7 @@
 	import ArtefactModal from './artefactModal.svelte';
 
 	let showModal = $state(false);
-	let currentlySelected = $state(artefacts[0]);
+	let currentlySelected = $state();
 
 	function addToCart(e, item) {
 		e.stopPropagation();
@@ -56,7 +56,9 @@
 		{/each}
 	</div>
 
-	<ArtefactModal {currentlySelected} bind:showModal />
+	{#if showModal}
+		<ArtefactModal {currentlySelected} bind:showModal />
+	{/if}
 </main>
 
 <style>
@@ -91,8 +93,8 @@
 	}
 
 	.image {
-		width: 200px;
 		height: 200px;
+		margin-bottom: 0.5rem;
 	}
 
 	.info {

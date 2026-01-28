@@ -1,4 +1,6 @@
 <script>
+	import Zoom from 'svelte-medium-image-zoom';
+	import '$lib/zoomStyles.css';
 	let dialog = $state();
 	let { showModal = $bindable(), currentlySelected } = $props();
 
@@ -15,7 +17,9 @@
 	}}
 >
 	<div id="content">
-		<enhanced:img class="image2" src={currentlySelected.image} alt="" />
+		<Zoom>
+			<enhanced:img class="image2" src={currentlySelected.image} alt="" />
+		</Zoom>
 		<div id="information">
 			<div>
 				<h1>{currentlySelected.title}</h1>
@@ -34,7 +38,6 @@
 <style>
 	.image2 {
 		width: 20rem;
-		height: 20rem;
 		margin: auto 0;
 	}
 
