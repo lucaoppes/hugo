@@ -1,12 +1,12 @@
 // place files you want to import through the `$lib` alias in this folder.
 import flow from '$lib/assets/flow.jpg';
-import horaceHorizon from '$lib/assets/horaceHorizon.png';
-import palsSeason1 from '$lib/assets/palsSeason1.png';
-import jAlmie from '$lib/assets/jAImie.png';
-import theNomadsCompass from '$lib/assets/theNomadsCompass.png';
-import upsettingParnsip from '$lib/assets/upsettingParnsip.png';
-import Nausianomicon from '$lib/assets/Nausianomicon.png';
-import angelHeart from '$lib/assets/angelHeart.png';
+import horaceHorizon from '$lib/assets/horaceHorizon.png?enhanced';
+import palsSeason1 from '$lib/assets/palsSeason1.png?enhanced';
+import jAlmie from '$lib/assets/jAImie.png?enhanced';
+import theNomadsCompass from '$lib/assets/theNomadsCompass.png?enhanced';
+import upsettingParnsip from '$lib/assets/upsettingParnsip.png?enhanced';
+import Nausianomicon from '$lib/assets/Nausianomicon.png?enhanced';
+import angelHeart from '$lib/assets/angelHeart.png?enhanced';
 
 export const artefacts = [
 	{

@@ -103,6 +103,7 @@
 
 	.image {
 		height: 200px;
+		width: auto;
 		margin-bottom: 0.5rem;
 	}
 

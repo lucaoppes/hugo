@@ -1,10 +1,12 @@
 <!-- HOME -->
 
 <script>
-	import shopOutside from '$lib/assets/shopOutside.png';
-	import hugo from '$lib/assets/hugoIntro.png';
-	import sam from '$lib/assets/samIntro.png';
-	import george from '$lib/assets/georgeIntro.png';
+	import Zoom from 'svelte-medium-image-zoom';
+	import '$lib/zoomStyles.css';
+	import shopOutside from '$lib/assets/shopOutside.png?enhanced';
+	import hugo from '$lib/assets/hugoIntro.png?enhanced';
+	import sam from '$lib/assets/samIntro.png?enhanced';
+	import george from '$lib/assets/georgeIntro.png?enhanced';
 </script>
 
 <main>
@@ -20,7 +22,9 @@
 	></iframe>
 
 	<div id="intro-both">
-		<enhanced:img id="shop" src={shopOutside} alt="" />
+		<Zoom>
+			<enhanced:img id="shop" src={shopOutside} alt="" />
+		</Zoom>
 
 		<div id="intro-text">
 			<h1>WHO ARE WE?</h1>
@@ -37,11 +41,15 @@
 	<h1>MEET THE CREW</h1>
 
 	<div id="the-crew">
-		<enhanced:img class="crew-member" src={hugo} alt="" />
-
-		<enhanced:img class="crew-member" src={sam} alt="" />
-
-		<enhanced:img class="crew-member" src={george} alt="" />
+		<Zoom>
+			<enhanced:img class="crew-member" src={hugo} alt="" />
+		</Zoom>
+		<Zoom>
+			<enhanced:img class="crew-member" src={sam} alt="" />
+		</Zoom>
+		<Zoom>
+			<enhanced:img class="crew-member" src={george} alt="" />
+		</Zoom>
 	</div>
 </main>
 
@@ -83,10 +91,12 @@
 	}
 
 	#shop {
-		width: 30rem;
+		width: 480px;
+		height: auto;
 	}
 
 	.crew-member {
-		width: 25rem;
+		width: 400px;
+		height: auto;
 	}
 </style>

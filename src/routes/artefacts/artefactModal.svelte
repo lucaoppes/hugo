@@ -18,7 +18,7 @@
 >
 	<div id="content">
 		<Zoom>
-			<enhanced:img class="image2" src={currentlySelected.image} alt="" />
+			<enhanced:img class="image" src={currentlySelected.image} alt="" />
 		</Zoom>
 		<div id="information">
 			<div>
@@ -36,8 +36,9 @@
 </dialog>
 
 <style>
-	.image2 {
-		width: 20rem;
+	.image {
+		width: 320px;
+		height: auto;
 		margin: auto 0;
 	}
 
