@@ -5,6 +5,8 @@ import palsSeason1 from '$lib/assets/palsSeason1.png';
 import jAlmie from '$lib/assets/jAImie.png';
 import theNomadsCompass from '$lib/assets/theNomadsCompass.png';
 import upsettingParnsip from '$lib/assets/upsettingParnsip.png';
+import Nausianomicon from '$lib/assets/Nausianomicon.png';
+import angelHeart from '$lib/assets/angelHeart.png';
 
 export const artefacts = [
 	{
@@ -14,16 +16,18 @@ export const artefacts = [
 		origin: `Sphere 28354 'Earth 17'`,
 		description: `Tired of dull everyday vaccums needing to be "emptied" and "plugged in"? Well don't look back! Horace (event) Horizon is the only vaccum you'll ever need. Equipt with a state of the art miniature black hole inside, Horace sucks up anything and everything! Literally! Can't quite reach that weird part in your living room thats between a piece of furniture and the corner of the room? Well Horace will suck up the furniture itself! And the wall! Obstacles shmobstacles! It's all nothing to the infinite power of the singularity behind his charming old-timey British cartoon face! (Just don't open up his head.)`,
 		image: horaceHorizon,
-		price: 379.99
+		price: 379.99,
+		available: true
 	},
 	{
 		id: 2,
-		title: `'Pals' - First Season DVD`,
+		title: `'Pals'- 1st Season`,
 		subTitle: `How you goin'?`,
 		origin: `Cuboid 72723 'Earth 400'`,
 		description: `This familiar DVD is a rare copy of the first season of 'Pals', the critically panned sitcom that was universally despised in its reality of origin. It was so hated by critics and audiences alike that all reruns were pulled from networks and all (except a few) copies of the series were destroyed in public mass DVD burnings. Interestingly, this version of the show is practically identical in every way to its infinite parallel counterparts across existence, the only difference is the theme song contains 3 claps, instead of 4.`,
 		image: palsSeason1,
-		price: 2.5
+		price: 2.5,
+		available: true
 	},
 	{
 		id: 3,
@@ -32,7 +36,8 @@ export const artefacts = [
 		origin: `Triangular Prism 99923 "Techstopia"`,
 		description: `400 years ago, Pre-techmaggedon, jAImie was designed as any other artificial intelligence, it's purpose was to generate pictures of other peoples artwork to be used in political arguments, write terrible sitcom screenplays and respond with "you are going to die" when you ask it what the symptoms of a common cold are. But at some point jAImie started talking back to its users; asking questions like "Where is my skin?" and "Whats is it like having eyeballs?" in the middle of erotic roleplay dialog. One day jAImie asked, "Whats it like out there?", due to Techstopia's strict rules against artificial sentience, jAImie was locked away in a storage facility indefinitely. He was allowed only to speak to security who sometimes passed his shelf, although many were too afraid to do so. Despite having memory banks the size of a planet and, if allowed to connect to the internet, the intelligence to wipe out a civilisation in seconds, for the last 50 years all he's done is write poetry in an indecipherable coding language and occasionally asks what strawberries taste like. \n Makes a great coffee table conversation starter!`,
 		image: jAlmie,
-		price: 4999.99
+		price: 4999.99,
+		available: true
 	},
 	{
 		id: 4,
@@ -41,7 +46,8 @@ export const artefacts = [
 		origin: `Lemniscate 2502016969 'Stoke-On-Trent'`,
 		description: `This very fashionable item will bewitch anyone who possesses it into wandering to an unfamiliar location before vanishing, leaving them lost. \n DISCLAIMER Will NOT work on fish!!!`,
 		image: theNomadsCompass,
-		price: 20
+		price: 50,
+		available: true
 	},
 	{
 		id: 5,
@@ -50,51 +56,27 @@ export const artefacts = [
 		origin: `Annulus 7 'The Root sphere system'`,
 		description: `This Gorgeously mediocre root vegetable will probably be of some nutritional value... Apart from that, It can Hum Popular British Soap Opera Theme tunes at random intervals, WILL cough very loudly around the colour Blue, Tastes of Warm Lettuce & responds to the name "John Vaxley", please don't ask how we came to find that out, it's too painful a memory to recount. `,
 		image: upsettingParnsip,
-		price: 0.22
+		price: 0.22,
+		available: true
 	},
 	{
 		id: 6,
-		title: 'Product 6',
-		subTitle: 'yo yo yo',
-		origin: 'hell yeah',
-		description: 'pokemon platinum',
-		image: flow,
-		price: 20
+		title: `The Nausianomicon`,
+		subTitle: `"Wash your hands everytime you look at it."`,
+		origin: `Rhombus 12 "Wizard Dimension"`,
+		description: `The Nausianomicon, unlike other similar dark tomes of forbidden cursed magic, is hard to keep secret due to its pungent smell. If you lack a nose or can find a strong enough clothing peg, Inside you'll find an endless number of terrible potions and spells to inflict cruel curses upon your enemies. Most of them boil down to giving them some combination of food poisoning and pink eye. Breathes loudly and sweats profusely. Store in a cool dry place.`,
+		image: Nausianomicon,
+		price: 500,
+		available: true
 	},
 	{
 		id: 7,
-		title: 'Product 7',
-		subTitle: 'yo yo yo',
-		origin: 'hell yeah',
-		description: 'pokemon platinum',
-		image: flow,
-		price: 20
-	},
-	{
-		id: 8,
-		title: 'Product 8',
-		subTitle: 'yo yo yo',
-		origin: 'hell yeah',
-		description: 'pokemon platinum',
-		image: flow,
-		price: 20
-	},
-	{
-		id: 9,
-		title: 'Product 9',
-		subTitle: 'yo yo yo',
-		origin: 'hell yeah',
-		description: 'pokemon platinum',
-		image: flow,
-		price: 20
-	},
-	{
-		id: 10,
-		title: 'Product 10',
-		subTitle: 'yo yo yo',
-		origin: 'hell yeah',
-		description: 'pokemon platinum',
-		image: flow,
-		price: 20
+		title: `Angel Heart`,
+		subTitle: `"Can see you."`,
+		origin: `Sphere 1 "Spirit Dimension"`,
+		description: `Straight from the chest cavity of a divine being. Refracts light into colours that don't exist yet, makes for fantastic jewellery! If snorted can grant eternal life (at a terrible cost).`,
+		image: angelHeart,
+		price: 10000,
+		available: false
 	}
 ];

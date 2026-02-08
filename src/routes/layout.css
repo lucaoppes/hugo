@@ -1,6 +1,6 @@
 :root {
-	--bg-colour-1: #833097;
-	--bg-colour-2: #b8679f;
+	--bg-colour-1: rgba(130, 48, 151, 0.7);
+	--bg-colour-2: rgba(184, 103, 158, 0.7);
 	font-family: monospace;
 }
 
@@ -16,7 +16,13 @@ html {
 
 body {
 	min-height: 100vh;
-	background-image: linear-gradient(180deg, var(--bg-colour-2), var(--bg-colour-1));
+	background-image:
+		url(../lib/assets/shopInsideSmall.png),
+		linear-gradient(180deg, var(--bg-colour-2), var(--bg-colour-1));
+	background-blend-mode: lighten;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
 	color: white;
 }
 
@@ -29,6 +35,11 @@ button {
 	font-size: 1rem;
 }
 
-button:active {
+button:disabled {
+	background-color: #3d3747;
+	color: #ffffff7e;
+}
+
+button:enabled:active {
 	transform: scale(0.9);
 }

@@ -2,7 +2,7 @@
 	import Zoom from 'svelte-medium-image-zoom';
 	import '$lib/zoomStyles.css';
 	let dialog = $state();
-	let { showModal = $bindable(), currentlySelected } = $props();
+	let { showModal = $bindable(), currentlySelected, addToCart } = $props();
 
 	$effect(() => {
 		if (showModal) dialog.showModal();

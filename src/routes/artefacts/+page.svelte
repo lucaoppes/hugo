@@ -49,15 +49,22 @@
 				<!-- <button onclick={() => artefact.dialog.showModal()}>Open</button> -->
 
 				<div class="info">
-					<p>${artefact.price}</p>
-					<button onclick={(e) => addToCart(e, artefact)}> Add to Cart</button>
+					<p>
+						${artefact.price}
+						{#if !artefact.available}
+							<span>(SOLD OUT)</span>
+						{/if}
+					</p>
+					<button disabled={!artefact.available} onclick={(e) => addToCart(e, artefact)}>
+						Add to Cart</button
+					>
 				</div>
 			</article>
 		{/each}
 	</div>
 
 	{#if showModal}
-		<ArtefactModal {currentlySelected} bind:showModal />
+		<ArtefactModal {currentlySelected} bind:showModal {addToCart} />
 	{/if}
 </main>
 
@@ -75,15 +82,17 @@
 		width: 15rem;
 		height: 25rem;
 		/* background-color: black; */
-		padding: 0.5rem;
+		padding: 1rem;
 		align-items: center;
 		display: flex;
 		flex-direction: column;
 		cursor: pointer;
+		background-color: #492b48;
+		border-radius: 1rem;
 	}
 
 	article:hover {
-		box-shadow: 0.5rem 0.5rem 3rem #833097;
+		box-shadow: 0.5rem 0.5rem 3rem #491755;
 	}
 
 	#artefacts {
@@ -104,5 +113,10 @@
 		align-items: center;
 		margin-top: auto;
 		width: 100%;
+	}
+
+	p > span {
+		display: block;
+		color: rgb(173, 17, 17);
 	}
 </style>
