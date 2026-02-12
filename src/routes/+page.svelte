@@ -18,7 +18,7 @@
 		<img id="everything" src={infiniteEverything} alt="" />
 	</Zoom>
 
-	<h1>ABOUT US</h1>
+	<!-- <h1>ABOUT US</h1> -->
 
 	<iframe
 		src="https://www.youtube.com/embed/T8ov902FWLE?si=OKYPBLc4krHPB7OL"
@@ -39,10 +39,10 @@
 			<p>
 				Welcome to Hugo's Mind Palace! The best and most convenient thrift shop in the entirety of
 				existence! Located right on a cozy little blue planet in the euclidian reality Sphere 8008
-				right in the western loop of <button
+				right in the western loop of <span
 					onclick={() => {
 						is_zoomed = true;
-					}}>The Infinite Everything!</button
+					}}>The Infinite Everything!</span
 				> We steal "collect" items from across all realities and safely bring them to you at a reasonable
 				price! Using our state of the art Hyperreality zippers, we can hop between worlds to get anything
 				you could ever imagine! Literally! Terrifying Technology! Incomprehensible Shapes not meant for
@@ -86,6 +86,11 @@
 
 	p {
 		font-size: 1.25rem;
+	}
+
+	span {
+		color: gold;
+		cursor: pointer;
 	}
 
 	#intro-both {

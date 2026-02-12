@@ -39,7 +39,7 @@
 </script>
 
 <main>
-	<h1>Please have a look at our selection of delectable artefacts:</h1>
+	<!-- <h1>Please have a look at our selection of delectable artefacts:</h1> -->
 	<!-- svelte-ignore a11y_click_events_have_key_events, a11y_no_noninteractive_element_interactions, a11y_no_static_element_interactions -->
 	<div id="artefacts">
 		{#each artefacts as artefact, index (artefact.id)}
@@ -50,7 +50,7 @@
 
 				<div class="info">
 					<p>
-						${artefact.price}
+						${artefact.price.toFixed(2)}
 						{#if !artefact.available}
 							<span>(SOLD OUT)</span>
 						{/if}

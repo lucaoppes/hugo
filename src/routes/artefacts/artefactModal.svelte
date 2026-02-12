@@ -28,7 +28,7 @@
 			</div>
 			<div>{currentlySelected.description}</div>
 			<div id="buttonAndPrice">
-				${currentlySelected.price}
+				${currentlySelected.price.toFixed(2)}
 				<button onclick={(e) => addToCart(e, currentlySelected)}> Add to Cart</button>
 			</div>
 		</div>

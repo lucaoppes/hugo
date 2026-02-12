@@ -41,5 +41,6 @@ button:disabled {
 }
 
 button:enabled:active {
-	transform: scale(0.9);
+	background-color: white;
+	color: black;
 }

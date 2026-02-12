@@ -38,6 +38,7 @@
 	#random-text {
 		text-align: center;
 		font-size: 1.5rem;
+		margin: 0.5rem auto;
 	}
 
 	nav {
@@ -47,7 +48,7 @@
 		gap: 1rem;
 		background-color: #492b48;
 		width: 50rem;
-		margin: 0 auto 3rem auto;
+		margin: 0 auto 2rem auto;
 	}
 
 	a {
@@ -62,7 +63,7 @@
 	}
 
 	div {
-		width: 500px;
+		width: 400px;
 		margin: auto;
 	}
 
