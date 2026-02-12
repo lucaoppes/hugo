@@ -96,4 +96,20 @@
 	h1 {
 		color: gold;
 	}
+
+	@media only screen and (max-width: 600px) {
+		main {
+			width: 100%;
+			padding: 0.5rem;
+		}
+
+		article {
+			width: 100%;
+		}
+
+		.image {
+			width: 150px;
+			height: auto;
+		}
+	}
 </style>

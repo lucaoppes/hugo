@@ -79,4 +79,14 @@
 		display: flex;
 		justify-content: space-between;
 	}
+
+	@media only screen and (max-width: 600px) {
+		dialog {
+			width: 100%;
+		}
+
+		#content {
+			flex-direction: column;
+		}
+	}
 </style>

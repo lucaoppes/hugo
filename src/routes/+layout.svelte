@@ -70,4 +70,14 @@
 	img {
 		width: inherit;
 	}
+
+	@media only screen and (max-width: 600px) {
+		div {
+			width: 100%;
+		}
+
+		nav {
+			width: 100%;
+		}
+	}
 </style>

@@ -124,4 +124,29 @@
 		width: 1px;
 		height: 1px;
 	}
+
+	@media only screen and (max-width: 600px) {
+		main {
+			width: 100%;
+			padding: 0.5rem;
+		}
+
+		iframe {
+			width: 100%;
+			aspect-ratio: 16/9;
+			height: auto;
+		}
+
+		#intro-both {
+			flex-direction: column;
+		}
+
+		#the-crew {
+			flex-direction: column;
+		}
+
+		#shop {
+			width: 100%;
+		}
+	}
 </style>

@@ -121,4 +121,21 @@
 		display: block;
 		color: rgb(173, 17, 17);
 	}
+
+	@media only screen and (max-width: 600px) {
+		main {
+			width: 100%;
+			padding: 0.5rem;
+		}
+
+		article {
+			width: 100%;
+			height: fit-content;
+		}
+
+		.image {
+			width: 100%;
+			height: auto;
+		}
+	}
 </style>
