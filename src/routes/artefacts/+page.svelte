@@ -70,8 +70,9 @@
 
 <style>
 	main {
-		width: 60%;
+		width: 70%;
 		margin: auto;
+		margin-bottom: 2rem;
 	}
 
 	h1 {
@@ -79,7 +80,7 @@
 	}
 
 	article {
-		width: 15rem;
+		width: 18rem;
 		height: 25rem;
 		/* background-color: black; */
 		padding: 1rem;

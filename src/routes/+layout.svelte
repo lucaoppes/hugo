@@ -5,13 +5,26 @@
 	import './layout.css';
 	import { page } from '$app/state';
 	import { base } from '$app/paths';
+	import title from '$lib/assets/hmpLogo.png';
+	import { randomTexts } from '$lib/artefactsList';
 
 	let { children } = $props();
+
+	function randomValue() {
+		console.log(1);
+		return randomTexts[Math.floor(Math.random() * randomTexts.length)];
+	}
 </script>
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
 </svelte:head>
+
+<div>
+	<enhanced:img src={title} alt="" />
+</div>
+
+<div id="random-text">{randomValue()}</div>
 
 <nav>
 	<a href="{base}/" aria-current={page.url.pathname === `${base}/`}>HOME</a>
@@ -22,12 +35,19 @@
 {@render children()}
 
 <style>
+	#random-text {
+		text-align: center;
+		font-size: 1.5rem;
+	}
+
 	nav {
 		display: flex;
 		justify-content: center;
 		padding: 1rem;
 		gap: 1rem;
-		margin-bottom: 3rem;
+		background-color: #492b48;
+		width: 50rem;
+		margin: 0 auto 3rem auto;
 	}
 
 	a {
@@ -39,5 +59,14 @@
 
 	a[aria-current='true'] {
 		text-decoration: underline;
+	}
+
+	div {
+		width: 500px;
+		margin: auto;
+	}
+
+	img {
+		width: inherit;
 	}
 </style>

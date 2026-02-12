@@ -3,37 +3,50 @@
 <script>
 	import Zoom from 'svelte-medium-image-zoom';
 	import '$lib/zoomStyles.css';
-	import shopOutside from '$lib/assets/shopOutside.png?enhanced';
-	import hugo from '$lib/assets/hugoIntro.png?enhanced';
-	import sam from '$lib/assets/samIntro.png?enhanced';
-	import george from '$lib/assets/georgeIntro.png?enhanced';
+	import shopOutside from '$lib/assets/shopOutside.png';
+	import hugo from '$lib/assets/hugoIntro.png';
+	import sam from '$lib/assets/samIntro.png';
+	import george from '$lib/assets/georgeIntro.png';
+	import shopPolaroid from '$lib/assets/shopPolaroid.png';
+	import infiniteEverything from '$lib/assets/theEverything.png';
+
+	let is_zoomed = $state(false);
 </script>
 
 <main>
+	<Zoom {is_zoomed} on_zoom_change={(z) => (is_zoomed = z)} duration={1}>
+		<img id="everything" src={infiniteEverything} alt="" />
+	</Zoom>
+
 	<h1>ABOUT US</h1>
 
 	<iframe
 		src="https://www.youtube.com/embed/T8ov902FWLE?si=OKYPBLc4krHPB7OL"
 		title="YouTube video player"
 		frameborder="0"
-		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; "
 		referrerpolicy="strict-origin-when-cross-origin"
 		allowfullscreen
 	></iframe>
 
 	<div id="intro-both">
 		<Zoom>
-			<enhanced:img id="shop" src={shopOutside} alt="" />
+			<enhanced:img id="shop" src={shopPolaroid} alt="" />
 		</Zoom>
 
 		<div id="intro-text">
 			<h1>WHO ARE WE?</h1>
 			<p>
-				Heya everyone, we are hugo mind palace and we are super cool and fun and you should
-				definitely buy some of our stuff which is 100% legitimately acquired and super high quality
-				<br /><br />
-				This is a super awesome project and you should definitely support our super awesome project because
-				I mean why woulnd't you really
+				Welcome to Hugo's Mind Palace! The best and most convenient thrift shop in the entirety of
+				existence! Located right on a cozy little blue planet in the euclidian reality Sphere 8008
+				right in the western loop of <button
+					onclick={() => {
+						is_zoomed = true;
+					}}>The Infinite Everything!</button
+				> We steal "collect" items from across all realities and safely bring them to you at a reasonable
+				price! Using our state of the art Hyperreality zippers, we can hop between worlds to get anything
+				you could ever imagine! Literally! Terrifying Technology! Incomprehensible Shapes not meant for
+				three dimensional eyes! There'll be only one place you go, and that's Hugo's!
 			</p>
 		</div>
 	</div>
@@ -98,5 +111,12 @@
 	.crew-member {
 		width: 400px;
 		height: auto;
+	}
+
+	#everything {
+		visibility: hidden;
+		position: absolute;
+		width: 1px;
+		height: 1px;
 	}
 </style>

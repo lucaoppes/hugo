@@ -3,7 +3,7 @@
 <script>
 	import { cart } from '$lib/sharedState.svelte';
 
-	$inspect(cart);
+	// $inspect(cart);
 </script>
 
 <main>

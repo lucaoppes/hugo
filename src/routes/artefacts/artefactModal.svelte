@@ -47,8 +47,9 @@
 		border: none;
 		padding: 0;
 		margin: auto;
-		background-color: #ffe8f8;
+		background-color: #492b48;
 		transition: all 0.2s;
+		color: white;
 	}
 
 	dialog::backdrop {
