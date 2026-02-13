@@ -51,4 +51,8 @@ button:enabled:active {
 			url('$lib/assets/insideMobile.png'),
 			linear-gradient(180deg, var(--bg-colour-2), var(--bg-colour-1));
 	}
+
+	* {
+		-webkit-tap-highlight-color: transparent;
+	}
 }
