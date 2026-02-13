@@ -11,7 +11,6 @@
 	let { children } = $props();
 
 	function randomValue() {
-		console.log(1);
 		return randomTexts[Math.floor(Math.random() * randomTexts.length)];
 	}
 </script>
@@ -47,7 +46,7 @@
 		padding: 1rem;
 		gap: 1rem;
 		background-color: #492b48;
-		width: 50rem;
+		max-width: 50rem;
 		margin: 0 auto 2rem auto;
 	}
 
@@ -71,7 +70,7 @@
 		width: inherit;
 	}
 
-	@media only screen and (max-width: 600px) {
+	@media only screen and (max-width: 700px) {
 		div {
 			width: 100%;
 		}

@@ -1,4 +1,5 @@
 <!-- ARTEFACTS -->
+
 <script>
 	import { cart } from '$lib/sharedState.svelte';
 	import { artefacts } from '$lib/artefactsList';
@@ -69,10 +70,14 @@
 </main>
 
 <style>
-	main {
-		width: 70%;
+	#artefacts {
+		max-width: 1600px;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, 18rem);
+		grid-gap: 2rem;
+		place-content: center;
 		margin: auto;
-		margin-bottom: 2rem;
+		padding: 0 1rem 2rem 1rem;
 	}
 
 	h1 {
@@ -82,7 +87,6 @@
 	article {
 		width: 18rem;
 		height: 25rem;
-		/* background-color: black; */
 		padding: 1rem;
 		align-items: center;
 		display: flex;
@@ -94,12 +98,6 @@
 
 	article:hover {
 		box-shadow: 0.5rem 0.5rem 3rem #491755;
-	}
-
-	#artefacts {
-		display: flex;
-		gap: 3rem;
-		flex-wrap: wrap;
 	}
 
 	.image {
@@ -122,10 +120,11 @@
 		color: rgb(173, 17, 17);
 	}
 
-	@media only screen and (max-width: 600px) {
-		main {
-			width: 100%;
-			padding: 0.5rem;
+	@media only screen and (max-width: 700px) {
+		#artefacts {
+			display: flex;
+			flex-direction: column;
+			gap: 2rem;
 		}
 
 		article {

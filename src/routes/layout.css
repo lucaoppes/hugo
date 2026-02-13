@@ -17,7 +17,7 @@ html {
 body {
 	min-height: 100vh;
 	background-image:
-		url('$lib/assets/shopInsideSmall.png?enhanced'),
+		url('$lib/assets/interiorSupa.png'),
 		linear-gradient(180deg, var(--bg-colour-2), var(--bg-colour-1));
 	background-blend-mode: lighten;
 	background-repeat: no-repeat;
@@ -43,4 +43,12 @@ button:disabled {
 button:enabled:active {
 	background-color: white;
 	color: black;
+}
+
+@media only screen and (max-width: 700px) {
+	body {
+		background-image:
+			url('$lib/assets/insideMobile.png'),
+			linear-gradient(180deg, var(--bg-colour-2), var(--bg-colour-1));
+	}
 }

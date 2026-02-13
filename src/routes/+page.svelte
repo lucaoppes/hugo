@@ -148,5 +148,10 @@
 		#shop {
 			width: 100%;
 		}
+
+		.crew-member {
+			width: 100%;
+			height: auto;
+		}
 	}
 </style>

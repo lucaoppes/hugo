@@ -83,10 +83,21 @@
 	@media only screen and (max-width: 600px) {
 		dialog {
 			width: 100%;
+			overscroll-behavior: contain;
+		}
+
+		dialog::backdrop {
+			overscroll-behavior: contain;
 		}
 
 		#content {
 			flex-direction: column;
+		}
+
+		.image {
+			width: 100%;
+			height: auto;
+			margin: auto 0;
 		}
 	}
 </style>
