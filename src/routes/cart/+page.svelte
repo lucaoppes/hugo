@@ -41,6 +41,7 @@
 	main {
 		width: 50rem;
 		margin: auto;
+		padding: 1rem;
 	}
 
 	article {
@@ -97,7 +98,7 @@
 		color: gold;
 	}
 
-	@media only screen and (max-width: 600px) {
+	@media only screen and (max-width: 700px) {
 		main {
 			width: 100%;
 			padding: 0.5rem;

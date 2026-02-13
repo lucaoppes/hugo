@@ -34,9 +34,6 @@
 		currentlySelected = artefacts[index];
 		showModal = true;
 	}
-
-	// $inspect(currentlySelected);
-	// $inspect(cart);
 </script>
 
 <main>

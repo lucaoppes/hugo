@@ -32,6 +32,12 @@
 				<button onclick={(e) => addToCart(e, currentlySelected)}> Add to Cart</button>
 			</div>
 		</div>
+		<button
+			id="close-button"
+			onclick={() => {
+				dialog.close();
+			}}>Close</button
+		>
 	</div>
 </dialog>
 
@@ -54,6 +60,11 @@
 
 	dialog::backdrop {
 		background: rgba(0, 0, 0, 0.3);
+	}
+
+	#close-button {
+		position: absolute;
+		right: 1rem;
 	}
 
 	#content {
@@ -80,7 +91,7 @@
 		justify-content: space-between;
 	}
 
-	@media only screen and (max-width: 600px) {
+	@media only screen and (max-width: 900px) {
 		dialog {
 			width: 100%;
 			overscroll-behavior: contain;
