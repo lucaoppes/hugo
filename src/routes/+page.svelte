@@ -1,22 +1,59 @@
 <!-- HOME -->
 
 <script>
-	import Zoom from 'svelte-medium-image-zoom';
-	import '$lib/zoomStyles.css';
-	import shopOutside from '$lib/assets/shopOutside.png';
-	import hugo from '$lib/assets/hugoIntro.png';
-	import sam from '$lib/assets/samIntro.png';
-	import george from '$lib/assets/georgeIntro.png';
-	import shopPolaroid from '$lib/assets/shopPolaroid.png';
-	import infiniteEverything from '$lib/assets/theEverything.png';
+	// import infiniteEverything from '$lib/assets/theEverything.png?enhanced';
+	// import shopPolaroid from '$lib/assets/shopPolaroid.png?enhanced';
+	// import hugo from '$lib/assets/hugoIntro.png?enhanced';
+	// import sam from '$lib/assets/samIntro.png?enhanced';
+	// import george from '$lib/assets/georgeIntro.png?enhanced';
+
+	import mediumZoom from 'medium-zoom';
+
+	const images = import.meta.glob('$lib/home/*', {
+		eager: true,
+		query: {
+			enhanced: true,
+			w: 400
+		}
+	});
+
+	console.log(Object.entries(images)[0][1].default);
+
+	let zoom = null;
+
+	function getZoom() {
+		if (zoom === null) {
+			zoom = mediumZoom({ background: '#000000b3' });
+		}
+
+		return zoom;
+	}
+
+	function attachZoom(image) {
+		const zoom = getZoom();
+		zoom.attach(image);
+
+		console.log(zoom);
+
+		return {
+			update(newOptions) {
+				zoom.update(newOptions);
+			},
+			destroy() {
+				zoom.detach();
+			}
+		};
+	}
 
 	let is_zoomed = $state(false);
 </script>
 
 <main>
-	<Zoom {is_zoomed} on_zoom_change={(z) => (is_zoomed = z)} duration={1}>
+	<!-- <Zoom {is_zoomed} on_zoom_change={(z) => (is_zoomed = z)} duration={1}>
 		<img id="everything" src={infiniteEverything} alt="" />
-	</Zoom>
+	</Zoom> -->
+
+	<!-- <enhanced:img id="everything" src={} alt="" use:attachZoom /> -->
 
 	<!-- <h1>ABOUT US</h1> -->
 
@@ -30,9 +67,7 @@
 	></iframe>
 
 	<div id="intro-both">
-		<Zoom>
-			<enhanced:img id="shop" src={shopPolaroid} alt="" />
-		</Zoom>
+		<!-- <enhanced:img id="shop" src={} alt="" use:attachZoom /> -->
 
 		<div id="intro-text">
 			<h1>WHO ARE WE?</h1>
@@ -41,7 +76,7 @@
 				existence! Located right on a cozy little blue planet in the euclidian reality Sphere 8008
 				right in the western loop of <span
 					onclick={() => {
-						is_zoomed = true;
+						zoom.open();
 					}}>The Infinite Everything!</span
 				> We steal "collect" items from across all realities and safely bring them to you at a reasonable
 				price! Using our state of the art Hyperreality zippers, we can hop between worlds to get anything
@@ -54,15 +89,14 @@
 	<h1>MEET THE CREW</h1>
 
 	<div id="the-crew">
-		<Zoom>
-			<enhanced:img class="crew-member" src={hugo} alt="" />
-		</Zoom>
-		<Zoom>
-			<enhanced:img class="crew-member" src={sam} alt="" />
-		</Zoom>
-		<Zoom>
-			<enhanced:img class="crew-member" src={george} alt="" />
-		</Zoom>
+		<!-- <enhanced:img class="crew-member" src={} alt="" use:attachZoom /> -->
+		<!-- <enhanced:img class="crew-member" src={} alt="" use:attachZoom /> -->
+		<enhanced:img
+			class="crew-member"
+			src={Object.entries(images)[0][1].default}
+			alt=""
+			use:attachZoom
+		/>
 	</div>
 </main>
 

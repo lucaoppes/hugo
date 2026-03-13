@@ -5,7 +5,7 @@
 	import './layout.css';
 	import { page } from '$app/state';
 	import { base } from '$app/paths';
-	import title from '$lib/assets/hmpLogo.png';
+	import title from '$lib/assets/hmpLogo.png?enhanced&w=400';
 	import { randomTexts } from '$lib/artefactsList';
 
 	let { children } = $props();
@@ -66,8 +66,13 @@
 		margin: auto;
 	}
 
+	picture {
+		width: inherit;
+	}
+
 	img {
 		width: inherit;
+		height: auto;
 	}
 
 	@media only screen and (max-width: 700px) {

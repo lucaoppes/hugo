@@ -42,7 +42,7 @@
 	<div id="artefacts">
 		{#each artefacts as artefact, index (artefact.id)}
 			<article onclick={() => selectArtefact(index)}>
-				<enhanced:img class="image" src={artefact.image} alt="" />
+				<enhanced:img class="image" src={artefact.image} sizes="(min-width:1px) 320px" alt="" />
 				<h1 id="title">{artefact.title}</h1>
 				<!-- <button onclick={() => artefact.dialog.showModal()}>Open</button> -->
 

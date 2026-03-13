@@ -17,7 +17,7 @@ html {
 body {
 	min-height: 100vh;
 	background-image:
-		url('$lib/assets/interiorSupa.png'),
+		url('$lib/assets/interiorSupa-optimized (1).webp'),
 		linear-gradient(180deg, var(--bg-colour-2), var(--bg-colour-1));
 	background-blend-mode: lighten;
 	background-repeat: no-repeat;
