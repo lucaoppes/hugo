@@ -156,7 +156,7 @@ export const randomTexts = [
 	'No senior discounts for immortals.',
 	'We do not accept bottlecaps.',
 	'We do not accept souls as currency.',
-	'The best thift store in The Everything!',
+	`The best thift store in <span id='everything'>The Everything!</span>`,
 	'The best thift store across all space & time!',
 	"When you don't observe us, we don't exist!",
 	'Gods still have to pay.',

@@ -59,7 +59,7 @@
 	}
 
 	dialog::backdrop {
-		background: rgba(0, 0, 0, 0.3);
+		background: #0000008a;
 	}
 
 	#close-button {

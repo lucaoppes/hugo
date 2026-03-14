@@ -7,23 +7,41 @@
 	import { base } from '$app/paths';
 	import title from '$lib/assets/hmpLogo.png?enhanced&w=400';
 	import { randomTexts } from '$lib/artefactsList';
-
+	import { onMount } from 'svelte';
 	let { children } = $props();
+	import SecretsDialog from '$lib/components/secretsDialog.svelte';
+	import theEverything from '$lib/home/theEverything.png?enhanced&w=1500';
 
-	function randomValue() {
+	let showModal = $state(false);
+
+	function randomText() {
 		return randomTexts[Math.floor(Math.random() * randomTexts.length)];
 	}
+
+	onMount(() => {
+		const el = document.getElementById('everything');
+
+		el.addEventListener('click', () => {
+			showModal = true;
+		});
+		el.style.color = 'goldenrod';
+		el.style.cursor = 'pointer';
+	});
 </script>
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
+<SecretsDialog src={theEverything} bind:showModal />
+
 <div>
 	<enhanced:img src={title} alt="" fetchpriority="high" />
 </div>
 
-<div id="random-text">{randomValue()}</div>
+<div id="random-text">
+	{@html randomTexts[14]}
+</div>
 
 <nav>
 	<a href="{base}/" aria-current={page.url.pathname === `${base}/`}>HOME</a>

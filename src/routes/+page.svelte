@@ -1,10 +1,9 @@
 <!-- HOME -->
 
 <script>
-	// import infiniteEverything from '$lib/assets/theEverything.png?enhanced';
-
-	import mediumZoom from 'medium-zoom';
-	import { fade } from 'svelte/transition';
+	import SecretsDialog from '$lib/components/secretsDialog.svelte';
+	import Zoom from 'svelte-medium-image-zoom';
+	import '$lib/zoomStyles.css';
 
 	const importedImages = import.meta.glob('$lib/home/*', {
 		eager: true,
@@ -14,60 +13,11 @@
 		}
 	});
 
-	let zoom = null;
-	let dialog = $state();
 	let showModal = $state(false);
-
-	$effect(() => {
-		if (showModal) dialog.showModal();
-	});
-
-	function getZoom() {
-		if (zoom === null) {
-			zoom = mediumZoom({ background: '#000000b3' });
-		}
-
-		return zoom;
-	}
-
-	function attachZoom(image) {
-		const zoom = getZoom();
-		zoom.attach(image);
-
-		console.log(zoom);
-
-		return {
-			update(newOptions) {
-				zoom.update(newOptions);
-			},
-			destroy() {
-				zoom.detach();
-			}
-		};
-	}
-
-	let is_zoomed = $state(false);
 </script>
 
 <main>
-	<dialog
-		bind:this={dialog}
-		onclose={() => (showModal = false)}
-		onclick={(e) => {
-			dialog.close();
-		}}
-	>
-		<enhanced:img
-			transition:fade
-			id="everything"
-			src={Object.entries(importedImages)[4][1].default}
-			alt=""
-		/>
-	</dialog>
-	<!-- <Zoom {is_zoomed} on_zoom_change={(z) => (is_zoomed = z)} duration={1}>
-		<img id="everything" src={infiniteEverything} alt="" />
-	</Zoom> -->
-
+	<SecretsDialog src={Object.entries(importedImages)[4][1].default} bind:showModal />
 	<!-- <h1>ABOUT US</h1> -->
 
 	<iframe
@@ -80,12 +30,9 @@
 	></iframe>
 
 	<div id="intro-both">
-		<enhanced:img
-			id="shop"
-			src={Object.entries(importedImages)[3][1].default}
-			alt=""
-			use:attachZoom
-		/>
+		<Zoom>
+			<enhanced:img id="shop" src={Object.entries(importedImages)[3][1].default} alt="" />
+		</Zoom>
 
 		<div id="intro-text">
 			<h1>WHO ARE WE?</h1>
@@ -110,24 +57,16 @@
 	<h1>MEET THE CREW</h1>
 
 	<div id="the-crew">
-		<enhanced:img
-			class="crew-member"
-			src={Object.entries(importedImages)[1][1].default}
-			alt=""
-			use:attachZoom
-		/>
-		<enhanced:img
-			class="crew-member"
-			src={Object.entries(importedImages)[2][1].default}
-			alt=""
-			use:attachZoom
-		/>
-		<enhanced:img
-			class="crew-member"
-			src={Object.entries(importedImages)[0][1].default}
-			alt=""
-			use:attachZoom
-		/>
+		<Zoom>
+			<enhanced:img class="crew-member" src={Object.entries(importedImages)[1][1].default} alt="" />
+		</Zoom>
+		<Zoom>
+			<enhanced:img class="crew-member" src={Object.entries(importedImages)[2][1].default} alt="" />
+		</Zoom>
+
+		<Zoom>
+			<enhanced:img class="crew-member" src={Object.entries(importedImages)[0][1].default} alt="" />
+		</Zoom>
 	</div>
 </main>
 
@@ -156,26 +95,6 @@
 	span {
 		color: gold;
 		cursor: pointer;
-	}
-
-	dialog {
-		max-width: none;
-		max-height: 100dvh;
-		width: 100dvw;
-		height: 100dvh;
-		overscroll-behavior: contain;
-		background: transparent;
-		text-align: center;
-	}
-
-	dialog::backdrop {
-		overscroll-behavior: contain;
-		background: rgba(0, 0, 0, 0.3);
-	}
-
-	#everything {
-		max-height: 100%;
-		width: auto;
 	}
 
 	#intro-both {
