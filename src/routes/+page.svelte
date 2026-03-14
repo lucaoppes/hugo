@@ -2,24 +2,25 @@
 
 <script>
 	// import infiniteEverything from '$lib/assets/theEverything.png?enhanced';
-	// import shopPolaroid from '$lib/assets/shopPolaroid.png?enhanced';
-	// import hugo from '$lib/assets/hugoIntro.png?enhanced';
-	// import sam from '$lib/assets/samIntro.png?enhanced';
-	// import george from '$lib/assets/georgeIntro.png?enhanced';
 
 	import mediumZoom from 'medium-zoom';
+	import { fade } from 'svelte/transition';
 
-	const images = import.meta.glob('$lib/home/*', {
+	const importedImages = import.meta.glob('$lib/home/*', {
 		eager: true,
 		query: {
 			enhanced: true,
-			w: 400
+			w: '1500'
 		}
 	});
 
-	console.log(Object.entries(images)[0][1].default);
-
 	let zoom = null;
+	let dialog = $state();
+	let showModal = $state(false);
+
+	$effect(() => {
+		if (showModal) dialog.showModal();
+	});
 
 	function getZoom() {
 		if (zoom === null) {
@@ -49,11 +50,23 @@
 </script>
 
 <main>
+	<dialog
+		bind:this={dialog}
+		onclose={() => (showModal = false)}
+		onclick={(e) => {
+			dialog.close();
+		}}
+	>
+		<enhanced:img
+			transition:fade
+			id="everything"
+			src={Object.entries(importedImages)[4][1].default}
+			alt=""
+		/>
+	</dialog>
 	<!-- <Zoom {is_zoomed} on_zoom_change={(z) => (is_zoomed = z)} duration={1}>
 		<img id="everything" src={infiniteEverything} alt="" />
 	</Zoom> -->
-
-	<!-- <enhanced:img id="everything" src={} alt="" use:attachZoom /> -->
 
 	<!-- <h1>ABOUT US</h1> -->
 
@@ -67,16 +80,24 @@
 	></iframe>
 
 	<div id="intro-both">
-		<!-- <enhanced:img id="shop" src={} alt="" use:attachZoom /> -->
+		<enhanced:img
+			id="shop"
+			src={Object.entries(importedImages)[3][1].default}
+			alt=""
+			use:attachZoom
+		/>
 
 		<div id="intro-text">
 			<h1>WHO ARE WE?</h1>
 			<p>
 				Welcome to Hugo's Mind Palace! The best and most convenient thrift shop in the entirety of
 				existence! Located right on a cozy little blue planet in the euclidian reality Sphere 8008
-				right in the western loop of <span
+				<!-- svelte-ignore a11y_click_events_have_key_events -->
+				<!-- svelte-ignore a11y_no_static_element_interactions -->
+				right in the western loop of
+				<span
 					onclick={() => {
-						zoom.open();
+						showModal = true;
 					}}>The Infinite Everything!</span
 				> We steal "collect" items from across all realities and safely bring them to you at a reasonable
 				price! Using our state of the art Hyperreality zippers, we can hop between worlds to get anything
@@ -89,11 +110,21 @@
 	<h1>MEET THE CREW</h1>
 
 	<div id="the-crew">
-		<!-- <enhanced:img class="crew-member" src={} alt="" use:attachZoom /> -->
-		<!-- <enhanced:img class="crew-member" src={} alt="" use:attachZoom /> -->
 		<enhanced:img
 			class="crew-member"
-			src={Object.entries(images)[0][1].default}
+			src={Object.entries(importedImages)[1][1].default}
+			alt=""
+			use:attachZoom
+		/>
+		<enhanced:img
+			class="crew-member"
+			src={Object.entries(importedImages)[2][1].default}
+			alt=""
+			use:attachZoom
+		/>
+		<enhanced:img
+			class="crew-member"
+			src={Object.entries(importedImages)[0][1].default}
 			alt=""
 			use:attachZoom
 		/>
@@ -127,6 +158,26 @@
 		cursor: pointer;
 	}
 
+	dialog {
+		max-width: none;
+		max-height: 100dvh;
+		width: 100dvw;
+		height: 100dvh;
+		overscroll-behavior: contain;
+		background: transparent;
+		text-align: center;
+	}
+
+	dialog::backdrop {
+		overscroll-behavior: contain;
+		background: rgba(0, 0, 0, 0.3);
+	}
+
+	#everything {
+		max-height: 100%;
+		width: auto;
+	}
+
 	#intro-both {
 		width: inherit;
 		display: flex;
@@ -150,13 +201,6 @@
 	.crew-member {
 		width: 400px;
 		height: auto;
-	}
-
-	#everything {
-		visibility: hidden;
-		position: absolute;
-		width: 1px;
-		height: 1px;
 	}
 
 	@media only screen and (max-width: 600px) {

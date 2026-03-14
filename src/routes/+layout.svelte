@@ -20,7 +20,7 @@
 </svelte:head>
 
 <div>
-	<enhanced:img src={title} alt="" />
+	<enhanced:img src={title} alt="" fetchpriority="high" />
 </div>
 
 <div id="random-text">{randomValue()}</div>
