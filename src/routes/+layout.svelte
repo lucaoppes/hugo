@@ -21,11 +21,13 @@
 	onMount(() => {
 		const el = document.getElementById('everything');
 
-		el.addEventListener('click', () => {
-			showModal = true;
-		});
-		el.style.color = 'goldenrod';
-		el.style.cursor = 'pointer';
+		if (el) {
+			el.addEventListener('click', () => {
+				showModal = true;
+			});
+			el.style.color = 'goldenrod';
+			el.style.cursor = 'pointer';
+		}
 	});
 </script>
 
@@ -40,7 +42,7 @@
 </div>
 
 <div id="random-text">
-	{@html randomTexts[14]}
+	{@html randomText()}
 </div>
 
 <nav>

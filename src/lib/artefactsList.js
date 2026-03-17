@@ -164,6 +164,10 @@ export const randomTexts = [
 	'Crossovers will not be tolerated.'
 ];
 
+export const dimensionInputs = [
+	{ id: 1, input: 'The Everything', destination: 'https://www.youtube.com/watch?v=-gLNlC_hQ3M' }
+];
+
 const imagesLow = import.meta.glob('$lib/artefacts/*', {
 	eager: true,
 	query: {

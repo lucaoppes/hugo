@@ -2,12 +2,31 @@
 
 <script>
 	import { cart } from '$lib/sharedState.svelte';
+	import { dimensionInputs } from '$lib/artefactsList';
 
-	// $inspect(cart);
+	let checkout = $state(true);
+	let dimension = $state();
+
+	function submitForm() {
+		const value = dimensionInputs.find((value) => value.input == dimension);
+
+		if (value) {
+			window.open(value.destination);
+		}
+	}
 </script>
 
 <main>
-	{#if cart.length === 0}
+	{#if checkout}
+		<form onsubmit={submitForm}>
+			<input required type="text" placeholder="First Name" />
+			<input required type="text" placeholder="Last Name" />
+			<input type="email" placeholder="Email" />
+			<input required type="text" placeholder="Dimension" bind:value={dimension} />
+			<button onclick={() => (checkout = false)}>Back</button>
+			<button type="submit">Purchase</button>
+		</form>
+	{:else if cart.length === 0}
 		<h1>Cart is Empty</h1>
 	{:else}
 		<!-- <h1>Cart:</h1> -->
@@ -33,6 +52,7 @@
 		{/each}
 		<h1>
 			Total is ${cart.reduce((accum, value) => accum + value.price * value.quantity, 0).toFixed(2)}
+			<button onclick={() => (checkout = true)}>Checkout</button>
 		</h1>
 	{/if}
 </main>
@@ -41,7 +61,6 @@
 	main {
 		width: 50rem;
 		margin: auto;
-		padding: 1rem;
 	}
 
 	article {
@@ -50,7 +69,6 @@
 		gap: 0.5rem;
 		margin-bottom: 1rem;
 		background-color: #492b48;
-		border-radius: 1rem;
 		padding: 1rem;
 		width: 25rem;
 		min-height: 8rem;
@@ -90,12 +108,20 @@
 		margin-top: -1rem;
 		margin-bottom: -1rem;
 		margin-left: -1rem;
-		border-top-left-radius: 1rem;
-		border-bottom-left-radius: 1rem;
 	}
 
 	h1 {
 		color: gold;
+	}
+
+	form {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	input {
+		padding: 1rem;
 	}
 
 	@media only screen and (max-width: 700px) {

@@ -6,11 +6,11 @@
 	import '$lib/zoomStyles.css';
 
 	const importedImages = import.meta.glob('$lib/home/*', {
-		eager: true,
-		query: {
-			enhanced: true,
-			w: '1500'
-		}
+		eager: true
+		// query: {
+		// 	enhanced: true,
+		// 	w: '1500'
+		// }
 	});
 
 	let showModal = $state(false);

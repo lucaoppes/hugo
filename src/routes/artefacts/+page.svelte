@@ -44,7 +44,6 @@
 			<article onclick={() => selectArtefact(index)}>
 				<enhanced:img class="image" src={artefact.image} sizes="(min-width:1px) 320px" alt="" />
 				<h1 id="title">{artefact.title}</h1>
-				<!-- <button onclick={() => artefact.dialog.showModal()}>Open</button> -->
 
 				<div class="info">
 					<p>
@@ -90,7 +89,6 @@
 		flex-direction: column;
 		cursor: pointer;
 		background-color: #492b48;
-		border-radius: 1rem;
 	}
 
 	article:hover {

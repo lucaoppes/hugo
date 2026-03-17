@@ -18,15 +18,10 @@
 	}
 
 	dialog {
-		max-width: none;
-		max-height: 100dvh;
-		width: 100dvw;
-		height: 100dvh;
-		overscroll-behavior: contain;
-		background: transparent;
-		text-align: center;
-		transition: all 0.75s allow-discrete;
 		opacity: 0;
+		background: transparent;
+		margin: auto;
+		transition: all 0.5s allow-discrete;
 	}
 
 	dialog::backdrop {
@@ -35,8 +30,13 @@
 	}
 
 	#image {
-		max-height: 100%;
+		max-height: 90dvh;
 		width: auto;
+		-webkit-tap-highlight-color: transparent;
+	}
+
+	#image:focus {
+		outline: none;
 	}
 
 	@starting-style {
