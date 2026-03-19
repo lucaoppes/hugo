@@ -1,15 +1,25 @@
 <!-- ARTEFACTS -->
 
 <script>
-	import { cart } from '$lib/sharedState.svelte';
+	import { cart, addedToCart } from '$lib/sharedState.svelte';
 	import { artefacts } from '$lib/artefactsList';
 	import ArtefactModal from './artefactModal.svelte';
+	import { fade, slide, fly, crossfade, draw } from 'svelte/transition';
 
 	let showModal = $state(false);
 	let currentlySelected = $state();
+	let currentInterval;
 
 	function addToCart(e, item) {
 		e.stopPropagation();
+
+		clearTimeout(currentInterval);
+
+		addedToCart.count++;
+
+		currentInterval = setTimeout(() => {
+			addedToCart.count = 0;
+		}, 2000);
 
 		if (!cart.length) {
 			cart.push({ ...item, quantity: 1 });
@@ -34,6 +44,10 @@
 		currentlySelected = artefacts[index];
 		showModal = true;
 	}
+
+	$effect(() => {});
+
+	$inspect(addedToCart);
 </script>
 
 <main>
@@ -43,7 +57,11 @@
 		{#each artefacts as artefact, index (artefact.id)}
 			<article onclick={() => selectArtefact(index)}>
 				<enhanced:img class="image" src={artefact.image} sizes="(min-width:1px) 320px" alt="" />
-				<h1 id="title">{artefact.title}</h1>
+				{#if artefact.smallTitle}
+					<h1>{artefact.smallTitle}</h1>
+				{:else}
+					<h1>{artefact.title}</h1>
+				{/if}
 
 				<div class="info">
 					<p>
@@ -63,6 +81,10 @@
 	{#if showModal}
 		<ArtefactModal {currentlySelected} bind:showModal {addToCart} />
 	{/if}
+
+	{#if addedToCart.count > 0}
+		<div transition:slide id="badge">Added to cart!<sup>x{addedToCart.count}</sup></div>
+	{/if}
 </main>
 
 <style>
@@ -74,6 +96,15 @@
 		place-content: center;
 		margin: auto;
 		padding: 0 1rem 2rem 1rem;
+	}
+
+	#badge {
+		position: fixed;
+		bottom: 1rem;
+		right: 1rem;
+		background-color: #492b48;
+		padding: 0.75rem;
+		font-size: 1.25rem;
 	}
 
 	h1 {

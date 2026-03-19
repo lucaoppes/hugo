@@ -27,6 +27,15 @@ body {
 	color: white;
 }
 
+sup {
+	background-color: gold;
+	color: black;
+	padding: 0.15rem 0.3rem;
+	margin-left: 0.2rem;
+	border-radius: 5px;
+	font-size: 0.9rem;
+}
+
 button {
 	padding: 0.5rem;
 	cursor: pointer;

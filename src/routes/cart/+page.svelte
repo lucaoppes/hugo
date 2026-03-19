@@ -1,33 +1,56 @@
 <!-- CART -->
 
 <script>
-	import { cart } from '$lib/sharedState.svelte';
+	import { cart, addedToCart } from '$lib/sharedState.svelte';
 	import { dimensionInputs } from '$lib/artefactsList';
+	import { onMount } from 'svelte';
 
-	let checkout = $state(true);
+	let checkout = $state(false);
+	let purchase = $state(false);
 	let dimension = $state();
+	let confirmationText = $state();
+	let total = $derived(
+		cart.reduce((accum, value) => accum + value.price * value.quantity, 0).toFixed(2)
+	);
 
 	function submitForm() {
 		const value = dimensionInputs.find((value) => value.input == dimension);
 
 		if (value) {
 			window.open(value.destination);
+			confirmationText = 'You have found the truth.';
+		} else {
+			confirmationText = `Sorry we don't deliver to your dimension!!`;
 		}
+		purchase = true;
 	}
+
+	onMount(() => {
+		addedToCart.count = 0;
+	});
 </script>
 
 <main>
 	{#if checkout}
-		<form onsubmit={submitForm}>
-			<input required type="text" placeholder="First Name" />
-			<input required type="text" placeholder="Last Name" />
-			<input type="email" placeholder="Email" />
-			<input required type="text" placeholder="Dimension" bind:value={dimension} />
-			<button onclick={() => (checkout = false)}>Back</button>
-			<button type="submit">Purchase</button>
-		</form>
+		{#if purchase}
+			<h1>{confirmationText}</h1>
+		{:else}
+			<h1>Total is: ${total}</h1>
+			<form onsubmit={submitForm}>
+				<div id="fullName">
+					<input required type="text" placeholder="First Name" />
+					<input required type="text" placeholder="Last Name" />
+				</div>
+				<input type="email" placeholder="Email" />
+				<input required type="text" placeholder="Dimension" bind:value={dimension} />
+				<div id="buttons">
+					<button type="button" onclick={() => (checkout = false)}>Back</button>
+					<button type="submit">Purchase</button>
+				</div>
+			</form>
+		{/if}
 	{:else if cart.length === 0}
-		<h1>Cart is Empty</h1>
+		<h1>Cart is Empty!</h1>
 	{:else}
 		<!-- <h1>Cart:</h1> -->
 		{#each cart as artefact, index}
@@ -37,7 +60,7 @@
 				<div id="information">
 					<h2>{artefact.title}</h2>
 					<div id="priceAndQuantity">
-						<p>${artefact.price}</p>
+						<p>${artefact.price.toFixed(2)}</p>
 						<div>
 							<button
 								class="quantityAdjust"
@@ -51,9 +74,9 @@
 			</article>
 		{/each}
 		<h1>
-			Total is ${cart.reduce((accum, value) => accum + value.price * value.quantity, 0).toFixed(2)}
-			<button onclick={() => (checkout = true)}>Checkout</button>
+			Total is ${total}
 		</h1>
+		<button id="checkout" onclick={() => (checkout = true)}>Checkout</button>
 	{/if}
 </main>
 
@@ -61,6 +84,7 @@
 	main {
 		width: 50rem;
 		margin: auto;
+		margin-bottom: 2rem;
 	}
 
 	article {
@@ -110,8 +134,30 @@
 		margin-left: -1rem;
 	}
 
+	#checkout {
+		font-size: 1.5rem;
+	}
+
+	#fullName {
+		width: 100%;
+		display: flex;
+		gap: 0.5rem;
+	}
+
+	#buttons {
+		width: 100%;
+		display: flex;
+		gap: 0.5rem;
+	}
+
+	#buttons button {
+		width: 100%;
+		font-size: 1.25rem;
+	}
+
 	h1 {
 		color: gold;
+		text-align: center;
 	}
 
 	form {
@@ -122,6 +168,7 @@
 
 	input {
 		padding: 1rem;
+		width: 100%;
 	}
 
 	@media only screen and (max-width: 700px) {

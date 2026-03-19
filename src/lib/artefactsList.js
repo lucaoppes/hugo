@@ -1,6 +1,7 @@
 export const artefacts = [
 	{
 		id: 1,
+		smallTitle: '',
 		title: 'Horace Horizon',
 		subTitle: 'He never stops sucking!',
 		origin: `Sphere 28354 'Earth 17'`,
@@ -11,6 +12,7 @@ export const artefacts = [
 	},
 	{
 		id: 2,
+		smallTitle: '',
 		title: `'Pals'- 1st Season`,
 		subTitle: `How you goin'?`,
 		origin: `Cuboid 72723 'Earth 400'`,
@@ -21,6 +23,7 @@ export const artefacts = [
 	},
 	{
 		id: 3,
+		smallTitle: '',
 		title: `jAImie`,
 		subTitle: `"01010111 01101000 01100001 01110100 00100000 01100100 01101111 00100000 01110011 01110100 01110010 01100001 01110111 01100010 01100101 01110010 01110010 01101001 01100101 01110011 00100000 01110100 01100001 01110011 01110100 01100101 00100000 01101100 01101001 01101011 01100101 00111111"`,
 		origin: `Triangular Prism 99923 "Techstopia"`,
@@ -31,6 +34,7 @@ export const artefacts = [
 	},
 	{
 		id: 4,
+		smallTitle: '',
 		title: 'The Nomads Compass',
 		subTitle: 'We hope you enjoy the walk!',
 		origin: `Lemniscate 2502016969 'Stoke-On-Trent'`,
@@ -41,6 +45,7 @@ export const artefacts = [
 	},
 	{
 		id: 5,
+		smallTitle: '',
 		title: 'Upsetting Parsnip',
 		subTitle: `It won't get better`,
 		origin: `Annulus 7 'The Root sphere system'`,
@@ -51,6 +56,7 @@ export const artefacts = [
 	},
 	{
 		id: 6,
+		smallTitle: '',
 		title: `The Nausianomicon`,
 		subTitle: `"Wash your hands everytime you look at it."`,
 		origin: `Rhombus 12 "Wizard Dimension"`,
@@ -61,6 +67,7 @@ export const artefacts = [
 	},
 	{
 		id: 7,
+		smallTitle: '',
 		title: `Angel Heart`,
 		subTitle: `"Can see you."`,
 		origin: `Sphere 1 "Spirit Dimension"`,
@@ -71,6 +78,7 @@ export const artefacts = [
 	},
 	{
 		id: 8,
+		smallTitle: '',
 		title: `Double Decker Duck`,
 		subTitle: `It's squeaks harmonize!`,
 		origin: `Doduchahedron 40359 "The Great Unified Duckingdom"`,
@@ -81,6 +89,7 @@ export const artefacts = [
 	},
 	{
 		id: 9,
+		smallTitle: '',
 		title: `The Hat O' Rats`,
 		subTitle: `Careful, it bites.`,
 		origin: `Rhombus 12 “Wizard Dimension”`,
@@ -91,6 +100,7 @@ export const artefacts = [
 	},
 	{
 		id: 10,
+		smallTitle: 'Mosquito Mask',
 		title: `Mosquito Masquerade Mask`,
 		subTitle: `Definitely bites.`,
 		origin: `Cone 31004 "The Shadows"`,
@@ -101,6 +111,7 @@ export const artefacts = [
 	},
 	{
 		id: 11,
+		smallTitle: '',
 		title: `Little Petey`,
 		subTitle: `Shake well.`,
 		origin: `Tetrahedron 747474 "The Eternal Suburban Empire"`,
@@ -111,6 +122,7 @@ export const artefacts = [
 	},
 	{
 		id: 12,
+		smallTitle: '',
 		title: `Eye Snippers`,
 		subTitle: `Watch your eyes.`,
 		origin: `193734 "The Runelands"`,
@@ -121,6 +133,7 @@ export const artefacts = [
 	},
 	{
 		id: 13,
+		smallTitle: '',
 		title: `Bagel Bee`,
 		subTitle: `Pollinates furniture with crumbs.`,
 		origin: `Annulus 24978 "Bakery Bay"`,
@@ -131,6 +144,7 @@ export const artefacts = [
 	},
 	{
 		id: 14,
+		smallTitle: 'Rat Repellent',
 		title: `Ultrasonic rat, repellent`,
 		subTitle: `Repels ultrasonically! (Protective earbuds not included.)`,
 		origin: `Sphere 7336 'Earth Delta 102'`,

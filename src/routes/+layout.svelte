@@ -11,6 +11,7 @@
 	let { children } = $props();
 	import SecretsDialog from '$lib/components/secretsDialog.svelte';
 	import theEverything from '$lib/home/theEverything.png?enhanced&w=1500';
+	import { addedToCart, cart } from '$lib/sharedState.svelte';
 
 	let showModal = $state(false);
 
@@ -25,10 +26,12 @@
 			el.addEventListener('click', () => {
 				showModal = true;
 			});
-			el.style.color = 'goldenrod';
+			el.style.color = 'gold';
 			el.style.cursor = 'pointer';
 		}
 	});
+
+	$inspect(addedToCart);
 </script>
 
 <svelte:head>
@@ -48,7 +51,11 @@
 <nav>
 	<a href="{base}/" aria-current={page.url.pathname === `${base}/`}>HOME</a>
 	<a href="{base}/artefacts" aria-current={page.url.pathname === `${base}/artefacts`}>ARTEFACTS</a>
-	<a href="{base}/cart" aria-current={page.url.pathname === `${base}/cart`}>CART</a>
+	<a href="{base}/cart"
+		><span aria-current={page.url.pathname === `${base}/cart`}>CART</span><sup
+			>{cart.reduce((accum, value) => accum + value.quantity, 0)}</sup
+		></a
+	>
 </nav>
 
 {@render children()}
@@ -77,7 +84,7 @@
 		font-size: 1.5rem;
 	}
 
-	a[aria-current='true'] {
+	[aria-current='true'] {
 		text-decoration: underline;
 	}
 
