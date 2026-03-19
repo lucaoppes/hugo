@@ -55,6 +55,30 @@ button:enabled:active {
 	color: black;
 }
 
+dialog {
+	opacity: 0;
+	transition-behavior: allow-discrete;
+	transition: all 0.5s;
+}
+
+dialog:open {
+	transition-behavior: allow-discrete;
+	opacity: 1;
+}
+
+dialog::backdrop {
+	transition-behavior: allow-discrete;
+	overscroll-behavior: contain;
+	background-color: rgba(0, 0, 0, 0.795);
+}
+
+@starting-style {
+	dialog:open {
+		transition-behavior: allow-discrete;
+		opacity: 0;
+	}
+}
+
 @media only screen and (max-width: 700px) {
 	body {
 		background-image:

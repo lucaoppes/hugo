@@ -24,11 +24,6 @@
 		transition: all 0.5s allow-discrete;
 	}
 
-	dialog::backdrop {
-		overscroll-behavior: contain;
-		background-color: rgba(0, 0, 0, 0.795);
-	}
-
 	#image {
 		max-height: 90dvh;
 		width: auto;

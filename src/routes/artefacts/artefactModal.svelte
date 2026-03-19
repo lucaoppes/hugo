@@ -54,12 +54,7 @@
 		padding: 0;
 		margin: auto;
 		background-color: #492b48;
-		transition: all 0.2s;
 		color: white;
-	}
-
-	dialog::backdrop {
-		background: #0000008a;
 	}
 
 	#close-button {
