@@ -17,7 +17,7 @@
 </script>
 
 <main>
-	<SecretsDialog src={Object.entries(importedImages)[4][1].default} bind:showModal />
+	<div><SecretsDialog src={Object.entries(importedImages)[4][1].default} bind:showModal /></div>
 	<!-- <h1>ABOUT US</h1> -->
 
 	<iframe

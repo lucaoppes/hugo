@@ -12,8 +12,8 @@ export const artefacts = [
 	},
 	{
 		id: 2,
-		smallTitle: '',
-		title: `'Pals'- 1st Season`,
+		smallTitle: `Pals' - 1st Season`,
+		title: `'Pals' - Complete First Season DVD (1994)`,
 		subTitle: `How you goin'?`,
 		origin: `Cuboid 72723 'Earth 400'`,
 		description: `This familiar DVD is a rare copy of the first season of 'Pals', the critically panned sitcom that was universally despised in its reality of origin. It was so hated by critics and audiences alike that all reruns were pulled from networks and all (except a few) copies of the series were destroyed in public mass DVD burnings. Interestingly, this version of the show is practically identical in every way to its infinite parallel counterparts across existence, the only difference is the theme song contains 3 claps, instead of 4.`,
@@ -177,6 +177,8 @@ export const randomTexts = [
 	'We dont trade with the Central Finite Curve.',
 	'Crossovers will not be tolerated.'
 ];
+
+// export const randomText = randomTexts[Math.floor(Math.random() * randomTexts.length)];
 
 export const dimensionInputs = [
 	{ id: 1, input: 'The Everything', destination: 'https://www.youtube.com/watch?v=-gLNlC_hQ3M' }

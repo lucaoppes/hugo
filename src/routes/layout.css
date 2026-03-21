@@ -13,6 +13,7 @@
 html {
 	font-size: 16px;
 	overflow-y: scroll;
+	scrollbar-gutter: stable;
 }
 
 body {
@@ -25,6 +26,7 @@ body {
 	background-size: cover;
 	background-attachment: fixed;
 	color: white;
+	/* overscroll-behavior: contain; */
 }
 
 sup {
@@ -55,34 +57,39 @@ button:enabled:active {
 	color: black;
 }
 
-dialog {
+.dialogFadeAnimation,
+.dialogFadeAnimation::backdrop {
+	transition: all 0.5s allow-discrete;
 	opacity: 0;
-	transition-behavior: allow-discrete;
-	transition: all 0.5s;
+	/* overscroll-behavior: contain;
+	overflow: hidden; */
 }
 
-dialog:open {
-	transition-behavior: allow-discrete;
+.dialogFadeAnimation:open,
+.dialogFadeAnimation:open::backdrop {
 	opacity: 1;
 }
 
-dialog::backdrop {
-	transition-behavior: allow-discrete;
-	overscroll-behavior: contain;
-	background-color: rgba(0, 0, 0, 0.795);
-}
-
 @starting-style {
-	dialog:open {
-		transition-behavior: allow-discrete;
+	.dialogFadeAnimation:open,
+	.dialogFadeAnimation:open::backdrop {
 		opacity: 0;
 	}
+}
+
+.dialogFadeAnimation:focus {
+	outline: none;
+}
+
+html:has(dialog[open]) {
+	overflow: hidden;
+	height: 100%;
 }
 
 @media only screen and (max-width: 700px) {
 	body {
 		background-image:
-			url('$lib/assets/insideMobile.png'),
+			url('$lib/assets/insideMobile.webp'),
 			linear-gradient(180deg, var(--bg-colour-2), var(--bg-colour-1));
 	}
 

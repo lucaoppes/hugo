@@ -10,6 +10,7 @@
 </script>
 
 <dialog
+	class="dialogFadeAnimation"
 	bind:this={dialog}
 	onclose={() => (showModal = false)}
 	onclick={(e) => {
@@ -55,6 +56,10 @@
 		margin: auto;
 		background-color: #492b48;
 		color: white;
+	}
+
+	dialog::backdrop {
+		background: rgba(0, 0, 0, 0.795);
 	}
 
 	#close-button {

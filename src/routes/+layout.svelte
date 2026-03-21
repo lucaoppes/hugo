@@ -2,24 +2,27 @@
 
 <script>
 	import favicon from '$lib/assets/favicon.svg';
-	import './layout.css';
 	import { page } from '$app/state';
 	import { base } from '$app/paths';
-	import title from '$lib/assets/hmpLogo.png?enhanced&w=400';
-	import { randomTexts } from '$lib/artefactsList';
-	import { onMount } from 'svelte';
 	let { children } = $props();
-	import SecretsDialog from '$lib/components/secretsDialog.svelte';
+
+	import './layout.css';
+
+	import title from '$lib/assets/hmpLogo.png?enhanced&w=400';
 	import theEverything from '$lib/home/theEverything.png?enhanced&w=1500';
 	import { addedToCart, cart } from '$lib/sharedState.svelte';
+	import { randomTexts } from '$lib/artefactsList';
+	import SecretsDialog from '$lib/components/secretsDialog.svelte';
+
+	import { onMount } from 'svelte';
 
 	let showModal = $state(false);
-
-	function randomText() {
-		return randomTexts[Math.floor(Math.random() * randomTexts.length)];
-	}
+	let showRandom = $state(false);
+	const randomNumber = Math.floor(Math.random() * randomTexts.length);
 
 	onMount(() => {
+		showRandom = true;
+
 		const el = document.getElementById('everything');
 
 		if (el) {
@@ -32,6 +35,7 @@
 	});
 
 	$inspect(addedToCart);
+	console.log(randomNumber);
 </script>
 
 <svelte:head>
@@ -45,7 +49,9 @@
 </div>
 
 <div id="random-text">
-	{@html randomText()}
+	{#if showRandom}
+		{@html randomTexts[randomNumber]}
+	{/if}
 </div>
 
 <nav>
